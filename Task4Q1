@@ -1,0 +1,77 @@
+// Main class to test the Student class
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Student s1 = new Student(101, "Kavin Kishore", 18, "Computer Science");
+            s1.display();
+        } catch (AgeException | NameException e) {
+            System.out.println("Error creating student s1: " + e.getMessage());
+        }
+
+        System.out.println();
+
+        try {
+            Student s2 = new Student(102, "Ramkumar123", 20, "Mechanical");
+            s2.display();
+        } catch (AgeException | NameException e) {
+            System.out.println("Error creating student s2: " + e.getMessage());
+        }
+
+        System.out.println();
+
+        try {
+            Student s3 = new Student(103, "lokesh kumar", 14, "Electrical");
+            s3.display();
+        } catch (AgeException | NameException e) {
+            System.out.println("Error creating student s3: " + e.getMessage());
+        }
+    }
+}
+
+
+
+// Custom exception for age validation
+class AgeException extends Exception {
+    AgeException(String message) {
+        super(message);
+    }
+}
+
+// Custom exception for name validation
+class NameException extends Exception {
+    NameException(String message) {
+        super(message);
+    }
+}
+
+// Student class with validation in constructor
+class Student {
+    int rollNo;
+    String name;
+    int age;
+    String course;
+
+    Student(int rollNo, String name, int age, String course) throws AgeException, NameException {
+        if (age < 15 || age > 21) {
+            throw new AgeException("Age must be between 15 and 21.");
+        }
+
+        if (!name.matches("[a-zA-Z\\s]+")) {
+            throw new NameException("Name must contain only alphabets and spaces.");
+        }
+
+        this.rollNo = rollNo;
+        this.name = name;
+        this.age = age;
+        this.course = course;
+    }
+
+    void display() {
+        System.out.println("Roll No: " + rollNo);
+        System.out.println("Name   : " + name);
+        System.out.println("Age    : " + age);
+        System.out.println("Course : " + course);
+    }
+}
+
+
