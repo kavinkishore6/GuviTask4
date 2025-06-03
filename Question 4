@@ -1,0 +1,47 @@
+import java.util.HashMap;
+
+public class StudentGrades {
+    private HashMap<String, Integer> gradesMap;
+
+    public StudentGrades() {
+        gradesMap = new HashMap<>();
+    }
+
+    // Add or update a student's grade
+    public void addStudent(String name, int grade) {
+        gradesMap.put(name, grade);
+        System.out.println("Added/Updated student: " + name + " with grade: " + grade);
+    }
+
+    // Remove a student by name
+    public void removeStudent(String name) {
+        if (gradesMap.containsKey(name)) {
+            gradesMap.remove(name);
+            System.out.println("Removed student: " + name);
+        } else {
+            System.out.println("Student not found: " + name);
+        }
+    }
+
+    // Display a student's grade by name
+    public void displayGrade(String name) {
+        if (gradesMap.containsKey(name)) {
+            System.out.println(name + "'s grade is: " + gradesMap.get(name));
+        } else {
+            System.out.println("Student not found: " + name);
+        }
+    }
+
+    public static void main(String[] args) {
+        StudentGrades sg = new StudentGrades();
+
+        sg.addStudent("kavin", 85);
+        sg.addStudent("kishore", 90);
+
+        sg.displayGrade("kavin");   
+        sg.displayGrade("kishore"); 
+
+        sg.removeStudent("kavin");   
+       
+    }
+}
