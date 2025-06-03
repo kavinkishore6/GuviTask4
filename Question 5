@@ -1,0 +1,45 @@
+import java.util.Stack;
+
+public class IntegerStack {
+    private Stack<Integer> stack;
+
+    public IntegerStack() {
+        stack = new Stack<>();
+    }
+
+    
+    public void pushElement(int element) {
+        stack.push(element);
+        System.out.println("Pushed: " + element);
+    }
+
+    
+    public void popElement() {
+        if (stack.isEmpty()) {
+            System.out.println("Stack is empty. Cannot pop.");
+        } else {
+            int popped = stack.pop();
+            System.out.println("Popped: " + popped);
+        }
+    }
+
+    
+    public void displayStack() {
+        System.out.println("Current Stack: " + stack);
+    }
+
+    public static void main(String[] args) {
+        IntegerStack intStack = new IntegerStack();
+
+        intStack.pushElement(10);
+        intStack.pushElement(20);
+        intStack.pushElement(30);
+
+        intStack.displayStack();
+
+        intStack.popElement();
+        intStack.displayStack();
+
+       
+    }
+}
