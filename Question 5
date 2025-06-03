@@ -7,13 +7,13 @@ public class IntegerStack {
         stack = new Stack<>();
     }
 
-    
+    // Push an element onto the stack
     public void pushElement(int element) {
         stack.push(element);
         System.out.println("Pushed: " + element);
     }
 
-    
+    // Pop an element from the stack
     public void popElement() {
         if (stack.isEmpty()) {
             System.out.println("Stack is empty. Cannot pop.");
@@ -23,23 +23,35 @@ public class IntegerStack {
         }
     }
 
-    
+    // Display the current stack
     public void displayStack() {
         System.out.println("Current Stack: " + stack);
     }
 
+    // Check if the stack is empty
+    public void isStackEmpty() {
+        if (stack.isEmpty()) {
+            System.out.println("The stack is empty.");
+        } else {
+            System.out.println("The stack is NOT empty.");
+        }
+    }
+
     public static void main(String[] args) {
         IntegerStack intStack = new IntegerStack();
+
+        intStack.isStackEmpty();
 
         intStack.pushElement(10);
         intStack.pushElement(20);
         intStack.pushElement(30);
 
         intStack.displayStack();
+        intStack.isStackEmpty(); 
 
         intStack.popElement();
-        intStack.displayStack();
-
-       
+        intStack.popElement();
+        intStack.popElement();
+        intStack.isStackEmpty(); 
     }
 }
